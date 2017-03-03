@@ -1,0 +1,63 @@
+
+<navbar></navbar>
+
+
+<div class="row">
+  <div class="col-sm-4"></div>
+
+  <!-- LOGIN -->
+  <div *ngIf="!showRegister" class="col-sm-4 w3-card-4" style="margin-right: 15px; margin-left: 15px">
+    <div  class="w3-container w3-teal" style="margin-right: -15px; margin-left: -15px">
+      <h2>Input Form</h2>
+    </div>
+    <form class="w3-container" style="padding-top: 15px; padding-bottom: 15px">
+      <label #usernameID id="username" class="w3-label w3-text-teal" (change)="newUser.username=usernameID.value"><b>Username</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text">
+
+      <label #passwordID id="password" class="w3-label w3-text-teal" (change)="newUser.password=passwordID.value"><b>Password</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="password">
+
+      <button class="w3-button" style="margin-top: 15px; margin-bottom: 15px" (click)="showRegister = true">Sign in</button>
+      <button class="w3-button w3-blue-grey" style="margin-top: 15px; margin-bottom: 15px">Login</button>
+    </form>
+  </div>
+
+
+  <!-- REGISTER -->
+  <div *ngIf="showRegister" class="col-sm-4 w3-card-4" style="margin-right: 15px; margin-left: 15px">
+    <div  class="w3-container w3-red" style="margin-right: -15px; margin-left: -15px; text-align: center">
+      <h2> Register</h2>
+    </div>
+    <div  class="w3-red row" style="margin-right: -15px; margin-left: -15px; text-align: center;">
+      <div id="label1" class="col-sm-6 w3-text-teal" (click)="selectedCompany()"> Company </div>
+      <div id="label2" class="col-sm-6 w3-red" (click)="selectedPerson()"> Person </div>
+    </div>
+
+    <form id="registerCompany" class="w3-container" style="padding-top: 15px; padding-bottom: 15px">
+      <label #newusernameID id="newUsername" class="w3-label w3-text-teal" (change)="newUser.username=newusernameID.value"><b>Username</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text">
+
+      <label #newpasswordID id="newPassword" class="w3-label w3-text-teal" (change)="newUser.password=newpasswordID.value"><b>Password</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="password">
+
+      <label *ngIf="newUser.company" #companyID id="CompanyName" class="w3-label w3-text-teal" (change)="newUser.companyName=companyID.value"><b>Company name</b></label>
+      <input *ngIf="newUser.company" class="w3-input w3-border w3-light-grey" type="text">
+
+      <label *ngIf="!newUser.company" #fnID id="firstName" class="w3-label w3-text-teal" (change)="newUser.firstname=fnID.value"><b>First name</b></label>
+      <input *ngIf="!newUser.company" class="w3-input w3-border w3-light-grey" type="text">
+
+      <label *ngIf="!newUser.company" #lnID id="lastName" class="w3-label w3-text-teal" (change)="newUser.lastname=lnID.value"><b>Last name</b></label>
+      <input *ngIf="!newUser.company" class="w3-input w3-border w3-light-grey" type="text">
+
+      <input #buyerID class="w3-radio" type="radio" name="userType" value="false" (change)=" newUser.seller = buyerID.value" checked>
+      <label class="w3-validate">Buyer</label>
+
+      <input #sellerID class="w3-radio" type="radio" name="userType" value="true" (change)=" newUser.seller = sellerID.value">
+      <label class="w3-validate">Seller</label>
+
+      <button class="w3-button" style="margin-top: 15px; margin-bottom: 15px" (click)="showRegister = false">Login</button>
+      <button class="w3-button w3-blue-grey" style="margin-top: 15px; margin-bottom: 15px">Register</button>
+    </form>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
