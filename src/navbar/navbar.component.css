@@ -1,3 +1,11 @@
 #logo {
-  background-image: url("/img/logoBL.png");
+  height: 150%;
+  margin-top: -5px;
+  margin-left: 5px;
+}
+
+#container{
+  margin-left: -30px;
+  margin-right: -30px;
+  opacity: 0.8;
 }
