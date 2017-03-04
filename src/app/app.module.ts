@@ -8,12 +8,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import {LoginComponent} from "../login/login.component";
 import {NavbarComponent} from "../navbar/navbar.component";
+import {HomeComponent} from "../home/home.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +23,12 @@ import {NavbarComponent} from "../navbar/navbar.component";
     HttpModule,
     RouterModule.forRoot([
       { path: '',
-        redirectTo: 'login',
+        redirectTo: 'home',
         pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
       },
       {
         path: 'login',
